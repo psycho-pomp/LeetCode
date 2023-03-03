@@ -1,24 +1,22 @@
 class Solution {
 public:
     vector<int> smallerNumbersThanCurrent(vector<int>& nums) {
-        vector<int> sorted_v;
-        vector<int>result;
-        map<int,int>mp;
-        for(auto value:nums){
-            sorted_v.push_back(value);
+        int count[101]={0};
+        for(int value:nums){
+            count[value]++;
         }
-        
-        sort(sorted_v.begin(),sorted_v.end());
-
-		for(int i=nums.size()-1;i>=0;i--){
-			mp[sorted_v[i]]=i;
-		}
-		
-
-		for(auto data:nums){
-			result.push_back(mp[data]);
-		}
+        for(int i=1;i<101;i++){
+            count[i]+=count[i-1];
+        }
+        vector<int> result;
+        for(int value:nums){
+            if(value == 0)
+                result.push_back(0);
+            else
+            result.push_back(count[value-1]);
+        }
         return result;
+        
         
     }
 };
