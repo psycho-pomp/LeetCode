@@ -4,14 +4,16 @@ public:
         int count=0,res=0;
         for(int value:nums){
             if(value){
-                count++;
-                res=max(count,res);
+                count++;  
             }
             else{
+                
+                res=max(count,res);
                 count=0;
+                
             }
         }
-        return res;
+        return max(res,count);
         
     }
 };
