@@ -1,11 +1,10 @@
 class Solution {
 public:
     bool checkIfExist(vector<int>& arr) {
-        for(int i=0;i<arr.size();i++){
-            for (int j=i+1;j<arr.size();j++){
-                if(arr[i]==2*arr[j] || arr[j]==arr[i]*2) return true;
-                
-            }
+        set<int> s;
+        for(auto value:arr){
+            if(s.count(value*2) || (value%2==0 && s.count(value/2))) return true;
+            s.insert(value);
         }
         return false;
         
