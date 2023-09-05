@@ -23,7 +23,6 @@ public:
         Node* temp=head;
         map<Node*,Node*>mp;
         while(temp->next){
-            cout<<temp->val<<endl;
             mp[temp]=prev;
             temp=temp->next;
             Node* temp1=new Node(temp->val);
@@ -33,9 +32,6 @@ public:
         mp[temp]=prev;
         temp=head;
         prev=headDeepCopy;
-        // for(auto x:mp){
-        //     cout<<x.first->val<<" "<<x.second->val<<endl;
-        // }
         while(temp){
             prev->random=mp[temp->random];
             temp=temp->next;
