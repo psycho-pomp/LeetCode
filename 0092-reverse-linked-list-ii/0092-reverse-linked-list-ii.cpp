@@ -30,7 +30,6 @@ public:
                 temp->next=prev;
                 if(leftNode!=NULL)leftNode->next=temp; 
                 if(rightNode!=NULL)rightNode->next=next;
-                //if(leftNode==NULL && next==NULL) head=temp;
                 if(leftNode==NULL) head=temp;
             }
             idx++;
