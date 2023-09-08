@@ -11,7 +11,6 @@ public:
                 }
                 else{
                     for(int k=0;k<res[i-1].size()-1;k++){
-                        //cout<<res[i-1][k]<<endl;
                         temp.push_back(res[i-1][k]+res[i-1][k+1]);
                         j++;
                     }  
