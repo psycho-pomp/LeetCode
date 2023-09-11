@@ -7,7 +7,6 @@ public:
             mp[groupSizes[i]].push_back(i);
         }
         for(auto m:mp){
-            //cout<<m.first<<" ";
             vector<int> temp;
             int size=0;
             for(int i=0;i<m.second.size();i++){
@@ -19,7 +18,6 @@ public:
                     size=0;
                 }
             }
-            //cout<<endl;
         }
         return res;
         
