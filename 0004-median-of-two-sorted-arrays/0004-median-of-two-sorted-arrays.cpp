@@ -18,10 +18,7 @@ public:
                 j++;
             }
             z++;
-            //cout<<curr<<endl;
         }
-        // cout<<z<<" "<<k<<endl;
-        // cout<<curr<<" "<<prev<<endl;
         if(z<k){
             while(i<n1 && z<k){
                 prev=curr;
@@ -35,8 +32,6 @@ public:
                 j++;
                 z++;
             }
-            cout<<z<<" "<<k<<endl;
-            cout<<curr<<" "<<prev<<endl;
         }
         (n1+n2)%2==0? res=(curr+prev)/2.0 : res=curr;
         return res;
