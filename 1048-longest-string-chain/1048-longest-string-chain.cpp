@@ -1,6 +1,6 @@
 class Solution {
 public:
-    static bool cmp(const string w1,const string w2){
+    static bool cmp( string w1, string w2){
         return w1.size()<w2.size();
     }
     int longestStrChain(vector<string>& words) {
