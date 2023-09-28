@@ -1,22 +1,17 @@
 class Solution {
 public:
-    vector<int> sortArrayByParity(vector<int>& arr) {
-        int start=0;
-        int end=arr.size()-1;
-        while(start<end){
-            if(arr[start]%2==0){
-                start++;
-            }
-            else if(arr[end]%2!=0){
-                end--;
-            }
-            else{
-                swap(arr[start],arr[end]);
-                start++;
-                end--;
+    vector<int> sortArrayByParity(vector<int>& nums) {
+        int evenIndex = 0;  
+        
+        for (int i = 0; i < nums.size(); i++) {
+            if (nums[i] % 2 == 0) {
+                // Swap the current element with the next available even-indexed position
+                swap(nums[i], nums[evenIndex++]);
             }
         }
-        return arr;
+        
+         // Return the sorted array
+        return nums;
         
     }
 };
