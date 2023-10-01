@@ -5,7 +5,6 @@ public:
         int i;
         for(i=0;i<s.size();i++){
             if(s[i]==' '){
-                //cout<<start<<" "<<i<<endl;
                 reverse(s.begin()+start,s.begin()+i);
                 start=i+1;
             }
