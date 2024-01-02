@@ -5,7 +5,6 @@ public:
         sort(s.begin(),s.end());
         int ans=0,j=0;
         for(int val:g){
-            //cout<<j<<endl;
             for(;j<s.size();j++){
                 if(s[j]>=val){
                     ans+=1;
