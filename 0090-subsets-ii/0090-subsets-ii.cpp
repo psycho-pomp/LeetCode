@@ -1,19 +1,13 @@
 class Solution {
 public:
     void generateSusbetSumWithDup(int idx,vector<int>& nums,int n,vector<vector<int>>& result,vector<int>& temp){
-        if(idx==n){
-            result.push_back(temp);
-            return;
+        result.push_back(temp);
+        for(int i=idx;i<n;i++){
+            if(i>idx && nums[i]==nums[i-1]) continue;
+            temp.push_back(nums[i]);
+            generateSusbetSumWithDup(i+1,nums,n,result,temp);
+            temp.pop_back();
         }
-        
-        temp.push_back(nums[idx]);
-        generateSusbetSumWithDup(idx+1,nums,n,result,temp);
-        temp.pop_back();
-        int currIdx=idx+1;
-        while(currIdx<n && nums[currIdx]==nums[idx]){
-            currIdx++;   
-        }
-        generateSusbetSumWithDup(currIdx,nums,n,result,temp);
         
     }
     vector<vector<int>> subsetsWithDup(vector<int>& nums) {
