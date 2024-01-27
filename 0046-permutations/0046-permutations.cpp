@@ -2,7 +2,7 @@ class Solution {
 public:
     void generatePermute(vector<int>& nums,vector<vector<int>>& ans,int idx){
         
-        if(idx>=nums.size()){
+        if(idx==nums.size()){
             ans.push_back(nums);
             return;
         }
