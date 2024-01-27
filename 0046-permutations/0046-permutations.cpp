@@ -1,27 +1,22 @@
 class Solution {
 public:
-    void generatePermute(vector<int>& nums,vector<int>& temp,unordered_map<int,int>& ump,vector<vector<int>>& result){
-        if(temp.size()==nums.size()){
-            result.push_back(temp);
+    void generatePermute(vector<int>& nums,vector<vector<int>>& ans,int idx){
+        
+        if(idx>=nums.size()){
+            ans.push_back(nums);
             return;
         }
-        for(int i=0;i<nums.size();i++){
-            if(ump[i]==0){
-                temp.push_back(nums[i]);
-                ump[i]=1;
-                generatePermute(nums,temp,ump,result);
-                temp.pop_back();
-                ump[i]=0;
-                
-            }
+        for(int i=idx;i<nums.size();i++){
+            swap(nums[i],nums[idx]);
+            generatePermute(nums,ans,idx+1);
+            swap(nums[i],nums[idx]);
+            
         }
     }
     vector<vector<int>> permute(vector<int>& nums) {
-        vector<vector<int>> result;
-        vector<int> temp;
-        unordered_map<int,int> ump;
-        generatePermute(nums,temp,ump,result);
-        return result;
+        vector<vector<int>> ans;
+        generatePermute(nums,ans,0);
+        return ans;
         
     }
 };
