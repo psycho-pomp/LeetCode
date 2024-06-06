@@ -8,8 +8,8 @@ class Solution {
             count.put(value, count.getOrDefault(value, 0) + 1);
         }
         
-        for(Integer keyValue:count.keySet()){
-            while(count.get(keyValue)>0){
+            while(count.size()>0){
+                int keyValue=count.entrySet().iterator().next().getKey();
                 for(int i=0;i<groupSize;i++){
                     if(count.getOrDefault(keyValue+i,0)==0){
                         return false;
@@ -17,9 +17,11 @@ class Solution {
                     else{
                         count.put(keyValue+i, count.get(keyValue+i)-1);
                     }
+                    if(count.get(keyValue+i)==0){
+                        count.remove(keyValue+i);
+                    }
                 }
             }
-        }
         return true;
         
     }
