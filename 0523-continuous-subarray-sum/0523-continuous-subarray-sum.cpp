@@ -22,19 +22,5 @@ public:
         }
         return false;
         
-//         for(int i=1;i<n;i++){
-//             if(nums[i]%k==0){
-//                 return true;
-//             }
-//             for(int j=0;j<=i-2;j++){
-//                 if((nums[i]-nums[j])%k==0){
-//                     return true;
-//                 }
-                
-                
-//             }
-//         }
-        return false;
-        
     }
 };
