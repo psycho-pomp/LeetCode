@@ -1,18 +1,26 @@
 class Solution {
 public:
-   typedef pair<int,int> pii;
    int findMaximizedCapital(int k, int w, vector<int>& profits, vector<int>& capital) {
-       int n=profits.size();
-       vector<pii> cap_prof(n);
-       for(int i=0; i<n; i++) cap_prof[i] = {capital[i],profits[i]};
-       sort(cap_prof.begin(), cap_prof.end());
-       priority_queue<int> maxheap;
-       int i=0;
+       int n=capital.size();
+       map<int,vector<int>> capitalToProfitList;
+       for(int i=0;i<n;i++){
+           capitalToProfitList[capital[i]].push_back(profits[i]);
+       }
+       auto i=capitalToProfitList.begin();
+       priority_queue<int> maxHeap;
        while(k--){
-           while(i<n && cap_prof[i].first<=w) maxheap.push(cap_prof[i++].second);
-           if(maxheap.empty()) return w;
-           w+=maxheap.top(); maxheap.pop();
+           while(i!=capitalToProfitList.end() && i->first<=w){
+               for(int value:i->second){
+                   maxHeap.push(value);
+               }
+               i++;
+           }
+           if(maxHeap.empty()) return w;
+           w+=maxHeap.top();
+           maxHeap.pop();
+           
        }
        return w;
+       
    }
 };
