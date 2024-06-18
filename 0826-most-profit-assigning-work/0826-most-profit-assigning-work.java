@@ -7,12 +7,9 @@ class Solution {
                 hash[difficulty[i]]=Math.max(hash[difficulty[i]],profit[i]);
             }
         }
-        //System.out.println(max_ability);
         for(int i=1;i<max_ability+1;i++){
             hash[i]=Math.max(hash[i],hash[i-1]);
-            //System.out.print(hash[i]+",");
         }
-        //System.out.println();
         int result=0;
         for(int value:worker){
             result+=hash[value];
