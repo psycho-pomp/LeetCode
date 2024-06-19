@@ -18,7 +18,7 @@ class Solution {
     }
     public int minDays(int[] bloomDay, int m, int k) {
         
-        int start=0,end=Arrays.stream(bloomDay).max().getAsInt();
+        int start=Arrays.stream(bloomDay).min().getAsInt(),end=Arrays.stream(bloomDay).max().getAsInt();
         int res=-1;
         while(start<=end){
             int mid=(start+end)/2;
