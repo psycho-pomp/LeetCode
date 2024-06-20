@@ -18,10 +18,9 @@ class Solution {
         int n=position.length;
         int start = 1;
         int end = (int) Math.ceil(position[n - 1] / (m - 1.0));
-        //if(m==2) return end;
         while(start<end){
             int mid=start+(end-start)/2;
-            //System.out.println(mid);
+            
             if(!accomodate(position,mid,m)){
                 end=mid;
             }
