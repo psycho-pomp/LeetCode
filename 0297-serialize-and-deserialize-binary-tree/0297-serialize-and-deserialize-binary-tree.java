@@ -36,10 +36,10 @@ public class Codec {
 
     // Decodes your encoded data to tree.
     public TreeNode deserialize(String data) {
-        System.out.println(data);
+        //System.out.println(data);
         if(data.length()<1) return null;
         String[] serList=data.split(",");
-        System.out.println(serList.length);
+        //System.out.println(serList.length);
         
         TreeNode root;
         Queue<TreeNode> q = new LinkedList<>();
